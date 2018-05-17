@@ -101,3 +101,5 @@ Take a look at this PR about it: [PR #25557](https://github.com/dotnet/corefx/pu
 **FIX:**
 
 Using the binaries from the release **2.1.0-rc1** works for the managed build on Windows because of the fix merged on [PR #25557](https://github.com/dotnet/corefx/pull/25557). Using this release instead.
+
+1. `build-managed.cmd -os=FreeBSD -SkipTests`
