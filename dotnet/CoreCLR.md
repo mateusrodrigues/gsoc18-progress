@@ -14,3 +14,8 @@ Using _FreeBSD 11.1-RELEASE_ and the _release/2.0.0_ branch:
 4. `cd coreclr`
 5. `git checkout release/2.0.0`
 6. `./build.sh release`
+
+### Using the release 2.1.0-rc1
+
+1. Download the [release 2.1.0-rc1](https://github.com/dotnet/coreclr/archive/v2.1-rc1.zip)
+2. `./build.sh release`
