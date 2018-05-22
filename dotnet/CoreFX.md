@@ -44,6 +44,29 @@ Adding yet another flag to the compiler, it finds the headers, but still fails:
                                      ^~~~~~~~~~~~~~~
 ```
 
+#### Release 2.1.0-rc1
+
+Since this is the version that successfully compiles the managed parts on Windows, I'll use this one also for the native build on FreeBSD.
+
+1. `src/Native/build-native.sh freebsd x64 debug`
+
+**FAILS**
+
+```
+[ 44%] Building C object System.Native/CMakeFiles/System.Native-Static.dir/pal_signal.c.o
+/usr/home/mateus/git/corefx-2.1-rc1/src/Native/Unix/System.Native/pal_signal.c:153:17: error: mutex 'lock' is not held on every path through here [-Werror,-Wthread-safety-analysis]
+            if (callback != NULL)
+                ^
+/usr/home/mateus/git/corefx-2.1-rc1/src/Native/Unix/System.Native/pal_signal.c:138:17: note: mutex acquired here
+                pthread_mutex_lock(&lock);
+                ^
+/usr/home/mateus/git/corefx-2.1-rc1/src/Native/Unix/System.Native/pal_signal.c:85:1: note: Thread warning in function 'SignalHandlerLoop'
+{
+^
+1 error generated.
+*** [System.Native/CMakeFiles/System.Native-Static.dir/pal_signal.c.o] Error code 1
+```
+
 ## For the Framework Managed Components
 
 Building the Framework Managed Components needs a Windows machine. 
@@ -74,3 +97,9 @@ em.Data.Odbc' (are you missing an assembly reference?) [C:\Users\Mateus\Git\core
 ```
 	
 Take a look at this PR about it: [PR #25557](https://github.com/dotnet/corefx/pull/25557).
+
+**FIX:**
+
+Using the binaries from the release **2.1.0-rc1** works for the managed build on Windows because of the fix merged on [PR #25557](https://github.com/dotnet/corefx/pull/25557). Using this release instead.
+
+1. `build-managed.cmd -os=FreeBSD -SkipTests`
