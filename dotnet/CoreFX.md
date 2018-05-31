@@ -16,4 +16,4 @@ On a **Windows** machine:
 
 ### Building the rest of the framework
 
-1. `build-managed.cmd -os=FreeBSD -SkipTests -OSGroup=FreeBSD`
+1. `build-managed.cmd -os=FreeBSD -OSGroup=FreeBSD -BuildTests -SkipTests -SkipManagedPackageBuild`
