@@ -2,7 +2,7 @@
 
 ## Priority list
 
-- [ ] #1 - Finish instructions from [Wiki](https://github.com/dotnet/corefx/wiki/Building-.NET-Core--2.x-on-FreeBSD)
+- [ ] #1 - Finish instructions from [Wiki](https://github.com/dotnet/corefx/wiki/Building-.NET-Core--2.x-on-FreeBSD) to get a working SDK on FreeBSD
 - [ ] #2 - Try to run tests and report outcome (see [#24255](https://github.com/dotnet/corefx/issues/24255) and [#15674](https://github.com/dotnet/coreclr/issues/15674))
 - [ ] #3 - Write more scripts to automate creation of FreeBSD SDK from step 1
 - [ ] #4 - Get official RID for BSD and possibly fix tools and JSON files to use it
