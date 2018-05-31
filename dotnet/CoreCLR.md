@@ -17,7 +17,7 @@ On a Windows machine, I cloned the coreclr repository on the _master_ branch:
 
 1. `.\build.cmd -freebsdmscorlib`
 
-Then I copied over to `coreclr/bin/Product/FreeBSD.x64.Debug` on the FreeBSD machine the files **System.Private.CoreLib.dll** and **PDB\System.Private.CoreLib**.
+Then I copied over to `coreclr/bin/Product/FreeBSD.x64.Debug` on the FreeBSD machine the files **System.Private.CoreLib.dll** and **PDB\System.Private.CoreLib.pdb**.
 
 ## Testing
 
