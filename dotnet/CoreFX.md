@@ -17,3 +17,12 @@ On a **Windows** machine:
 ### Building the rest of the framework
 
 1. `build-managed.cmd -os=FreeBSD -OSGroup=FreeBSD -BuildTests -SkipTests -SkipManagedPackageBuild`
+
+**FAILS:**
+```
+C:\Users\mateu\Git\corefx\src\Microsoft.XmlSerializer.Generator\tests\Microsoft.XmlSerializer.Generator.Tests.csproj(59
+,5): error MSB3073: The command "C:\Users\mateu\Git\corefx\bin/testhost/netcoreapp-FreeBSD-Debug-x64/dotnet C:\Users\ma
+teu\Git\corefx\bin/AnyOS.AnyCPU.Debug/Microsoft.XmlSerializer.Generator.Tests/netcoreapp/dotnet-Microsoft.XmlSerializer
+.Generator.dll C:\Users\mateu\Git\corefx\bin/AnyOS.AnyCPU.Debug/Microsoft.XmlSerializer.Generator.Tests/netcoreapp/Micr
+osoft.XmlSerializer.Generator.Tests.dll --force --quiet" exited with code 9009.
+```
