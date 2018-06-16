@@ -4,7 +4,7 @@
 
 - [x] #1 - ~Finish instructions from [Wiki](https://github.com/dotnet/corefx/wiki/Building-.NET-Core--2.x-on-FreeBSD) to get a working SDK on FreeBSD~
   - [These](https://github.com/dotnet/corefx/wiki/Building-.NET-Core--2.x-on-FreeBSD#building-freebsd-sdk) were the steps used to build the SDK if you'd like to reproduce this work.
-  - SDK zipped file available [here](). Bootstrap based on `dotnet-2.2.100-preview1-008958`.
+  - SDK zipped file available [here](http://distcache.FreeBSD.org/local-distfiles/dbn/dotnet/dotnetcli-freebsd.11-x64.zip). Bootstrap based on `dotnet-2.2.100-preview1-008958`.
 - [ ] #2 - Try to run tests and report outcome (see [#24255](https://github.com/dotnet/corefx/issues/24255) and [#15674](https://github.com/dotnet/coreclr/issues/15674))
 - [ ] #3 - Write more scripts to automate creation of FreeBSD SDK from step 1
 - [ ] #4 - Get official RID for BSD and possibly fix tools and JSON files to use it
