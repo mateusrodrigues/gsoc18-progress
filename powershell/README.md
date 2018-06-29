@@ -4,14 +4,20 @@
 
 Building the managed parts on FreeBSD using bootstrapped CLI completes **successfully**.
 
-1. Generate the strongly-typed resource files
+1. Restore packages for top powershell-unix project
+```
+cd src/powershell-unix
+dotnet restore
+```
+
+2. Generate the strongly-typed resource files
 ```
 cd src/ResGen
 dotnet restore
 dotnet run
 ```
 
-2. Generate the Type Catalog
+3. Generate the Type Catalog
 ```
 targetFile="Microsoft.PowerShell.SDK/obj/Microsoft.PowerShell.SDK.csproj.TypeCatalog.targets"
 cat > $targetFile <<-"EOF"
@@ -33,7 +39,7 @@ dotnet restore
 dotnet run ../System.Management.Automation/CoreCLR/CorePsTypeCatalog.cs powershell.inc
 ```
 
-3. Build the PowerShell top directory
+4. Build the PowerShell top directory
 
 ```
 cd src/powershell-unix
