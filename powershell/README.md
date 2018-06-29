@@ -72,164 +72,142 @@ cp src/powershell-unix/libpsl-native.so src/powershell-unix/bin/Debug/netcoreapp
 
 ### *libpsl-native* Test Results
 
+**ALL** tests are passing successfully.
+
 ```
-[mateus@mateus-freebsd libpsl-native]$ ctest --verbose
-UpdateCTestConfiguration  from :/home/mateus/git/powershell/src/libpsl-native/DartConfiguration.tcl
-UpdateCTestConfiguration  from :/home/mateus/git/powershell/src/libpsl-native/DartConfiguration.tcl
-Test project /home/mateus/git/powershell/src/libpsl-native
-Constructing a list of tests
-Done constructing a list of tests
-Updating test list for fixtures
-Added 0 tests to meet fixture requirements
-Checking test dependency graph...
-Checking test dependency graph end
-test 1
-    Start 1: psl-native-test
+Start testing: Jun 28 20:51 -03
+----------------------------------------------------------
+1/1 Testing: psl-native-test
+1/1 Test: psl-native-test
+Command: "/home/mateus/git/PowerShell-mateusrodrigues/src/libpsl-native/test/psl-native-test" "--gtest_output=xml:native-tests.xml"
+Directory: /home/mateus/git/PowerShell-mateusrodrigues/src/libpsl-native/test
+"psl-native-test" start time: Jun 28 20:51 -03
+Output:
+----------------------------------------------------------
+[==========] Running 32 tests from 14 test cases.
+[----------] Global test environment set-up.
+[----------] 2 tests from CreateHardLinkTest
+[ RUN      ] CreateHardLinkTest.FilePathNameDoesNotExist
+[       OK ] CreateHardLinkTest.FilePathNameDoesNotExist (5 ms)
+[ RUN      ] CreateHardLinkTest.VerifyLinkCount
+[       OK ] CreateHardLinkTest.VerifyLinkCount (1 ms)
+[----------] 2 tests from CreateHardLinkTest (6 ms total)
 
-1: Test command: /home/mateus/git/powershell/src/libpsl-native/test/psl-native-test "--gtest_output=xml:native-tests.xml"
-1: Test timeout computed to be: 9.99988e+06
-1: [==========] Running 32 tests from 14 test cases.
-1: [----------] Global test environment set-up.
-1: [----------] 2 tests from CreateHardLinkTest
-1: [ RUN      ] CreateHardLinkTest.FilePathNameDoesNotExist
-1: [       OK ] CreateHardLinkTest.FilePathNameDoesNotExist (1 ms)
-1: [ RUN      ] CreateHardLinkTest.VerifyLinkCount
-1: [       OK ] CreateHardLinkTest.VerifyLinkCount (0 ms)
-1: [----------] 2 tests from CreateHardLinkTest (1 ms total)
-1:
-1: [----------] 4 tests from CreateSymLinkTest
-1: [ RUN      ] CreateSymLinkTest.FilePathNameDoesNotExist
-1: [       OK ] CreateSymLinkTest.FilePathNameDoesNotExist (2 ms)
-1: [ RUN      ] CreateSymLinkTest.SymLinkToFile
-1: [       OK ] CreateSymLinkTest.SymLinkToFile (2 ms)
-1: [ RUN      ] CreateSymLinkTest.SymLinkToDirectory
-1: [       OK ] CreateSymLinkTest.SymLinkToDirectory (1 ms)
-1: [ RUN      ] CreateSymLinkTest.SymLinkAgain
-1: [       OK ] CreateSymLinkTest.SymLinkAgain (2 ms)
-1: [----------] 4 tests from CreateSymLinkTest (7 ms total)
-1:
-1: [----------] 4 tests from IsExecutableTest
-1: [ RUN      ] IsExecutableTest.FilePathNameDoesNotExist
-1: [       OK ] IsExecutableTest.FilePathNameDoesNotExist (0 ms)
-1: [ RUN      ] IsExecutableTest.NormalFileIsNotIsexecutable
-1: [       OK ] IsExecutableTest.NormalFileIsNotIsexecutable (0 ms)
-1: [ RUN      ] IsExecutableTest.FilePermission_700
-1: [       OK ] IsExecutableTest.FilePermission_700 (0 ms)
-1: [ RUN      ] IsExecutableTest.FilePermission_777
-1: [       OK ] IsExecutableTest.FilePermission_777 (0 ms)
-1: [----------] 4 tests from IsExecutableTest (0 ms total)
-1:
-1: [----------] 5 tests from isSymLinkTest
-1: [ RUN      ] isSymLinkTest.FilePathNameDoesNotExist
-1: [       OK ] isSymLinkTest.FilePathNameDoesNotExist (1 ms)
-1: [ RUN      ] isSymLinkTest.NormalFileIsNotSymLink
-1: [       OK ] isSymLinkTest.NormalFileIsNotSymLink (1 ms)
-1: [ RUN      ] isSymLinkTest.SymLinkToFile
-1: [       OK ] isSymLinkTest.SymLinkToFile (2 ms)
-1: [ RUN      ] isSymLinkTest.NormalDirectoryIsNotSymbLink
-1: [       OK ] isSymLinkTest.NormalDirectoryIsNotSymbLink (2 ms)
-1: [ RUN      ] isSymLinkTest.SymLinkToDirectory
-1: [       OK ] isSymLinkTest.SymLinkToDirectory (1 ms)
-1: [----------] 5 tests from isSymLinkTest (7 ms total)
-1:
-1: [----------] 3 tests from IsFileTest
-1: [ RUN      ] IsFileTest.RootIsFile
-1: /home/mateus/git/powershell/src/libpsl-native/test/test-isfile.cpp:13: Failure
-1: Value of: IsFile("/")
-1:   Actual: true
-1: Expected: false
-1: [  FAILED  ] IsFileTest.RootIsFile (1 ms)
-1: [ RUN      ] IsFileTest.BinLsIsFile
-1: [       OK ] IsFileTest.BinLsIsFile (0 ms)
-1: [ RUN      ] IsFileTest.CannotGetOwnerOfFakeFile
-1: [       OK ] IsFileTest.CannotGetOwnerOfFakeFile (0 ms)
-1: [----------] 3 tests from IsFileTest (1 ms total)
-1:
-1: [----------] 3 tests from IsDirectoryTest
-1: [ RUN      ] IsDirectoryTest.RootIsDirectory
-1: [       OK ] IsDirectoryTest.RootIsDirectory (0 ms)
-1: [ RUN      ] IsDirectoryTest.BinLsIsNotDirectory
-1: [       OK ] IsDirectoryTest.BinLsIsNotDirectory (0 ms)
-1: [ RUN      ] IsDirectoryTest.ReturnsFalseForFakeDirectory
-1: [       OK ] IsDirectoryTest.ReturnsFalseForFakeDirectory (0 ms)
-1: [----------] 3 tests from IsDirectoryTest (0 ms total)
-1:
-1: [----------] 1 test from GetFullyQualifiedNameTest
-1: [ RUN      ] GetFullyQualifiedNameTest.ValidateLinuxGetFullyQualifiedDomainName
-1: [       OK ] GetFullyQualifiedNameTest.ValidateLinuxGetFullyQualifiedDomainName (30953 ms)
-1: [----------] 1 test from GetFullyQualifiedNameTest (30953 ms total)
-1:
-1: [----------] 3 tests from getLinkCountTest
-1: [ RUN      ] getLinkCountTest.FilePathNameDoesNotExist
-1: [       OK ] getLinkCountTest.FilePathNameDoesNotExist (0 ms)
-1: [ RUN      ] getLinkCountTest.LinkCountOfSinglyLinkedFile
-1: [       OK ] getLinkCountTest.LinkCountOfSinglyLinkedFile (1 ms)
-1: [ RUN      ] getLinkCountTest.LinkCountOfMultiplyLinkedFile
-1: [       OK ] getLinkCountTest.LinkCountOfMultiplyLinkedFile (0 ms)
-1: [----------] 3 tests from getLinkCountTest (1 ms total)
-1:
-1: [----------] 1 test from GetComputerNameTest
-1: [ RUN      ] GetComputerNameTest.Success
-1: [       OK ] GetComputerNameTest.Success (7 ms)
-1: [----------] 1 test from GetComputerNameTest (7 ms total)
-1:
-1: [----------] 1 test from GetUserName
-1: [ RUN      ] GetUserName.Success
-1: [       OK ] GetUserName.Success (2 ms)
-1: [----------] 1 test from GetUserName (2 ms total)
-1:
-1: [----------] 1 test from GetCurrentProcessId
-1: [ RUN      ] GetCurrentProcessId.simple
-1: [       OK ] GetCurrentProcessId.simple (1 ms)
-1: [----------] 1 test from GetCurrentProcessId (1 ms total)
-1:
-1: [----------] 1 test from GetUserFromPid
-1: [ RUN      ] GetUserFromPid.Success
-1: /home/mateus/git/powershell/src/libpsl-native/test/test-getuserfrompid.cpp:13: Failure
-1: Value of: expected
-1:   Actual: "mateus"
-1: Expected: GetUserFromPid(getpid())
-1: Which is: NULL
-1: [  FAILED  ] GetUserFromPid.Success (0 ms)
-1: [----------] 1 test from GetUserFromPid (0 ms total)
-1:
-1: [----------] 1 test from LocaleTest
-1: [ RUN      ] LocaleTest.Success
-1: /home/mateus/git/powershell/src/libpsl-native/test/test-locale.cpp:21: Failure
-1: Value of: "UTF-8"
-1: Expected: nl_langinfo(0)
-1: Which is: "US-ASCII"
-1: [  FAILED  ] LocaleTest.Success (0 ms)
-1: [----------] 1 test from LocaleTest (0 ms total)
-1:
-1: [----------] 2 tests from GetFileOwnerTest
-1: [ RUN      ] GetFileOwnerTest.CanGetOwnerOfRoot
-1: [       OK ] GetFileOwnerTest.CanGetOwnerOfRoot (0 ms)
-1: [ RUN      ] GetFileOwnerTest.CannotGetOwnerOfFakeFile
-1: [       OK ] GetFileOwnerTest.CannotGetOwnerOfFakeFile (0 ms)
-1: [----------] 2 tests from GetFileOwnerTest (1 ms total)
-1:
-1: [----------] Global test environment tear-down
-1: [==========] 32 tests from 14 test cases ran. (30981 ms total)
-1: [  PASSED  ] 29 tests.
-1: [  FAILED  ] 3 tests, listed below:
-1: [  FAILED  ] IsFileTest.RootIsFile
-1: [  FAILED  ] GetUserFromPid.Success
-1: [  FAILED  ] LocaleTest.Success
-1:
-1:  3 FAILED TESTS
-1/1 Test #1: psl-native-test ..................***Failed   31.01 sec
+[----------] 4 tests from CreateSymLinkTest
+[ RUN      ] CreateSymLinkTest.FilePathNameDoesNotExist
+[       OK ] CreateSymLinkTest.FilePathNameDoesNotExist (7 ms)
+[ RUN      ] CreateSymLinkTest.SymLinkToFile
+[       OK ] CreateSymLinkTest.SymLinkToFile (2 ms)
+[ RUN      ] CreateSymLinkTest.SymLinkToDirectory
+[       OK ] CreateSymLinkTest.SymLinkToDirectory (2 ms)
+[ RUN      ] CreateSymLinkTest.SymLinkAgain
+[       OK ] CreateSymLinkTest.SymLinkAgain (5 ms)
+[----------] 4 tests from CreateSymLinkTest (16 ms total)
 
-0% tests passed, 1 tests failed out of 1
+[----------] 4 tests from IsExecutableTest
+[ RUN      ] IsExecutableTest.FilePathNameDoesNotExist
+[       OK ] IsExecutableTest.FilePathNameDoesNotExist (0 ms)
+[ RUN      ] IsExecutableTest.NormalFileIsNotIsexecutable
+[       OK ] IsExecutableTest.NormalFileIsNotIsexecutable (0 ms)
+[ RUN      ] IsExecutableTest.FilePermission_700
+[       OK ] IsExecutableTest.FilePermission_700 (1 ms)
+[ RUN      ] IsExecutableTest.FilePermission_777
+[       OK ] IsExecutableTest.FilePermission_777 (1 ms)
+[----------] 4 tests from IsExecutableTest (2 ms total)
 
-Total Test time (real) =  31.01 sec
+[----------] 5 tests from isSymLinkTest
+[ RUN      ] isSymLinkTest.FilePathNameDoesNotExist
+[       OK ] isSymLinkTest.FilePathNameDoesNotExist (4 ms)
+[ RUN      ] isSymLinkTest.NormalFileIsNotSymLink
+[       OK ] isSymLinkTest.NormalFileIsNotSymLink (2 ms)
+[ RUN      ] isSymLinkTest.SymLinkToFile
+[       OK ] isSymLinkTest.SymLinkToFile (1 ms)
+[ RUN      ] isSymLinkTest.NormalDirectoryIsNotSymbLink
+[       OK ] isSymLinkTest.NormalDirectoryIsNotSymbLink (2 ms)
+[ RUN      ] isSymLinkTest.SymLinkToDirectory
+[       OK ] isSymLinkTest.SymLinkToDirectory (4 ms)
+[----------] 5 tests from isSymLinkTest (13 ms total)
 
-The following tests FAILED:
-          1 - psl-native-test (Failed)
-Errors while running CTest
+[----------] 3 tests from IsFileTest
+[ RUN      ] IsFileTest.RootIsFile
+[       OK ] IsFileTest.RootIsFile (0 ms)
+[ RUN      ] IsFileTest.BinLsIsFile
+[       OK ] IsFileTest.BinLsIsFile (0 ms)
+[ RUN      ] IsFileTest.CannotGetOwnerOfFakeFile
+[       OK ] IsFileTest.CannotGetOwnerOfFakeFile (0 ms)
+[----------] 3 tests from IsFileTest (0 ms total)
+
+[----------] 3 tests from IsDirectoryTest
+[ RUN      ] IsDirectoryTest.RootIsDirectory
+[       OK ] IsDirectoryTest.RootIsDirectory (0 ms)
+[ RUN      ] IsDirectoryTest.BinLsIsNotDirectory
+[       OK ] IsDirectoryTest.BinLsIsNotDirectory (0 ms)
+[ RUN      ] IsDirectoryTest.ReturnsFalseForFakeDirectory
+[       OK ] IsDirectoryTest.ReturnsFalseForFakeDirectory (0 ms)
+[----------] 3 tests from IsDirectoryTest (0 ms total)
+
+[----------] 1 test from GetFullyQualifiedNameTest
+[ RUN      ] GetFullyQualifiedNameTest.ValidateLinuxGetFullyQualifiedDomainName
+[       OK ] GetFullyQualifiedNameTest.ValidateLinuxGetFullyQualifiedDomainName (30658 ms)
+[----------] 1 test from GetFullyQualifiedNameTest (30658 ms total)
+
+[----------] 3 tests from getLinkCountTest
+[ RUN      ] getLinkCountTest.FilePathNameDoesNotExist
+[       OK ] getLinkCountTest.FilePathNameDoesNotExist (0 ms)
+[ RUN      ] getLinkCountTest.LinkCountOfSinglyLinkedFile
+[       OK ] getLinkCountTest.LinkCountOfSinglyLinkedFile (0 ms)
+[ RUN      ] getLinkCountTest.LinkCountOfMultiplyLinkedFile
+[       OK ] getLinkCountTest.LinkCountOfMultiplyLinkedFile (0 ms)
+[----------] 3 tests from getLinkCountTest (1 ms total)
+
+[----------] 1 test from GetComputerNameTest
+[ RUN      ] GetComputerNameTest.Success
+[       OK ] GetComputerNameTest.Success (24 ms)
+[----------] 1 test from GetComputerNameTest (24 ms total)
+
+[----------] 1 test from GetUserName
+[ RUN      ] GetUserName.Success
+[       OK ] GetUserName.Success (1 ms)
+[----------] 1 test from GetUserName (1 ms total)
+
+[----------] 1 test from GetCurrentProcessId
+[ RUN      ] GetCurrentProcessId.simple
+[       OK ] GetCurrentProcessId.simple (0 ms)
+[----------] 1 test from GetCurrentProcessId (0 ms total)
+
+[----------] 1 test from GetUserFromPid
+[ RUN      ] GetUserFromPid.Success
+[       OK ] GetUserFromPid.Success (1 ms)
+[----------] 1 test from GetUserFromPid (1 ms total)
+
+[----------] 1 test from LocaleTest
+[ RUN      ] LocaleTest.Success
+[       OK ] LocaleTest.Success (1 ms)
+[----------] 1 test from LocaleTest (1 ms total)
+
+[----------] 2 tests from GetFileOwnerTest
+[ RUN      ] GetFileOwnerTest.CanGetOwnerOfRoot
+[       OK ] GetFileOwnerTest.CanGetOwnerOfRoot (0 ms)
+[ RUN      ] GetFileOwnerTest.CannotGetOwnerOfFakeFile
+[       OK ] GetFileOwnerTest.CannotGetOwnerOfFakeFile (0 ms)
+[----------] 2 tests from GetFileOwnerTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 32 tests from 14 test cases ran. (30724 ms total)
+[  PASSED  ] 32 tests.
+<end of output>
+Test time =  30.75 sec
+----------------------------------------------------------
+Test Passed.
+"psl-native-test" end time: Jun 28 20:52 -03
+"psl-native-test" time elapsed: 00:00:30
+----------------------------------------------------------
+
+End testing: Jun 28 20:52 -03
 ```
 
-As a result, the resulting powershell binary has weird behaviors that may be fixed when all tests are passing.
+> A note on **LocaleTest.Success**:
+> the environment variable **LANG** must be set to `LANG=en_US.UTF-8`.
 
 To run powershell:
 
