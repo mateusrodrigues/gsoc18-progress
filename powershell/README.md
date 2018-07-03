@@ -50,6 +50,8 @@ dotnet build
 
 PowerShell on *nix relies on a component called **libpsl-native** to provide functionality missing from .NET via system calls.
 
+The code for the native parts have been migrated to [PowerShell/PowerShell-Native](https://github.com/PowerShell/PowerShell-Native). Fixes for FreeBSD-specific issues have been made through PR [#2](https://github.com/PowerShell/PowerShell-Native/pull/2).
+
 1. Build libpsl-native
 
 ```
@@ -62,12 +64,6 @@ make
 
 ```
 ctest --verbose
-```
-
-3. Copy resulting library to powershell executable folder
-
-```
-cp src/powershell-unix/libpsl-native.so src/powershell-unix/bin/Debug/netcoreapp2.1/
 ```
 
 ### *libpsl-native* Test Results
